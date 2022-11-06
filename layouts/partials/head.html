@@ -9,7 +9,7 @@
 <link rel="canonical" href="{{ .Permalink }}" />
 
 <!-- Theme CSS -->
-{{ $css := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint }}
+{{ $css := slice (resources.Get "css/style.css") (resources.Get "css/extra.css") | resources.Concat "css/style.css" | resources.Minify | resources.Fingerprint }}
 <link href="{{ $css.Permalink }}" rel="stylesheet" type="text/css" />
 
 {{ $css := slice (resources.Get "css/littlefoot.dist.css") (resources.Get "css/littlefoot.css") | resources.Concat "css/littlefoot.css" | resources.Minify | resources.Fingerprint }}

@@ -1,11 +1,11 @@
 function markExternalLinks() {
-  const links = document.querySelectorAll("a");
+  const links = document.querySelectorAll("#content a");
 
   for (let link of links) {
     if (link.hostname === location.hostname) {
       continue;
     }
-    //link.target = "_blank";
+
     link.rel = "external noopener";
     link.classList.add("external");
   }
