@@ -10,6 +10,11 @@
         <span class="post-author">
           by <a href="{{ .Site.BaseURL }}">{{  .Params.Author.name | default .Site.Params.Author.name }}</a>
         </span>
+        {{ with .Lastmod }}
+        <p class="post-updated-date">
+          Last update: <time datetime="{{ .Format "2006-01-02T15:04:05-0700" }}">{{ .Format ($.Site.Params.DateFormatSingle | default "2006-01-02") }}</time>
+        </p>
+        {{ end }}
     </div>
 
     {{ if .Params.tags }}
